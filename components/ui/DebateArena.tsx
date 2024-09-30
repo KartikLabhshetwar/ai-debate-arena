@@ -1,6 +1,8 @@
 'use client'
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 export function DebateArena() {
   const [topic, setTopic] = useState('');
@@ -53,30 +55,38 @@ export function DebateArena() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h1 className="text-2xl font-bold mb-4">AI Debate Arena</h1>
-      <form onSubmit={handleSubmit} className="mb-4">
-        <input
+    <div className="max-w-4xl mx-auto p-4 space-y-6">
+      <h1 className="text-3xl font-bold text-center mb-6">AI Debate Arena</h1>
+      <form onSubmit={handleSubmit} className="space-y-4">
+        <Input
           type="text"
           value={topic}
           onChange={(e) => setTopic(e.target.value)}
           placeholder="Enter debate topic"
-          className="w-full p-2 border rounded"
+          className="w-full"
         />
-        <Button type="submit" disabled={isLoading} className="mt-2">
-          {isLoading ? 'Loading...' : 'Start Debate'}
+        <Button type="submit" disabled={isLoading} className="w-50">
+          {isLoading ? 'Generating Debate...' : 'Start Debate'}
         </Button>
       </form>
-      {error && <p className="text-red-500 mt-2">{error}</p>}
-      <div className="grid grid-cols-2 gap-4">
-        <div>
-          <h2 className="font-bold">Mistral AI</h2>
-          <p>{mistralResponse}</p>
-        </div>
-        <div>
-          <h2 className="font-bold">LLaMA (Hugging Face)</h2>
-          <p>{llamaResponse}</p>
-        </div>
+      {error && <p className="text-red-500 text-center">{error}</p>}
+      <div className="grid md:grid-cols-2 gap-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Mistral AI</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm">{mistralResponse || 'Waiting for response...'}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>LLaMA (Hugging Face)</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <p className="text-sm">{llamaResponse || 'Waiting for response...'}</p>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
