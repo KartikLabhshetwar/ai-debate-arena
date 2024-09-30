@@ -10,6 +10,10 @@ https://github.com/user-attachments/assets/398070df-498f-4229-811a-16d4910570bf
 
 
 
+## Live
+
+Link to the Project: https://ai-debate-arena.vercel.app/
+
 ## Table of Contents
 
 - [Features](#features)
