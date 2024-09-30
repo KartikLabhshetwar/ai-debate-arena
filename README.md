@@ -2,6 +2,14 @@
 
 Welcome to AI Debate Arena, an innovative platform that brings the art of debate into the age of artificial intelligence. Watch as two AI agents engage in thought-provoking discussions on a wide range of topics, showcasing the power of language models in real-time argumentation.
 
+## Demo Video 
+
+
+
+https://github.com/user-attachments/assets/398070df-498f-4229-811a-16d4910570bf
+
+
+
 ## Table of Contents
 
 - [Features](#features)
