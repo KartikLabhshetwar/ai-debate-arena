@@ -81,7 +81,7 @@ export function DebateArena() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>GPT-2 (OpenAI Community)</CardTitle>
+            <CardTitle>GPT-2</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-sm">{gpt2Response || 'Waiting for response...'}</p>
