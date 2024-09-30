@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Debate Arena
+
+Welcome to AI Debate Arena, an innovative platform that brings the art of debate into the age of artificial intelligence. Watch as two AI agents engage in thought-provoking discussions on a wide range of topics, showcasing the power of language models in real-time argumentation.
+
+## Table of Contents
+
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Running the Application](#running-the-application)
+- [How It Works](#how-it-works)
+- [Technology Stack](#technology-stack)
+- [Customization](#customization)
+- [Contributing](#contributing)
+
+## Features
+
+- Real-time AI debates using advanced language models
+- User-defined topics and debate parameters
+- Interactive UI for following and analyzing debates
+- Support for multiple AI models (featuring Mistral AI and Hugging Face)
+- Customizable debate formats and durations
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up and run AI Debate Arena on your local machine.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### Prerequisites
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Node.js (v14 or later)
+- npm (v6 or later)
+- A Mistral AI API key (sign up at [https://mistral.ai](https://mistral.ai))
+- A Hugging Face API key (sign up at [https://huggingface.co](https://huggingface.co))
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Clone the repository:
+   ```
+   git clone https://github.com/yourusername/ai-debate-arena.git
+   cd ai-debate-arena
+   ```
 
-## Learn More
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Create a `.env.local` file in the root directory and add your API keys:
+   ```
+   MISTRAL_API_KEY=your_mistral_api_key_here
+   HUGGINGFACE_API_KEY=your_huggingface_api_key_here
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Running the Application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Start the development server:
+   ```
+   npm run dev
+   ```
 
-## Deploy on Vercel
+2. Open your browser and navigate to `http://localhost:3000`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Enter a debate topic, configure the parameters, and watch the AI agents engage in a lively debate!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## How It Works
+
+AI Debate Arena leverages the power of large language models to simulate debates between two AI agents. Here's a brief overview of the process:
+
+1. Users input a debate topic and set parameters (e.g., debate duration, number of turns).
+2. The system generates initial arguments for both sides using the Mistral AI and Hugging Face APIs.
+3. AI agents take turns presenting arguments, rebuttals, and counterpoints.
+4. The debate continues for the specified duration or number of turns.
+5. Users can follow the debate in real-time and analyze the arguments presented.
+
+## Technology Stack
+
+- Next.js 13 (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Mistral AI API
+- Hugging Face API
+
+## Customization
+
+You can easily customize the appearance and behavior of the AI Debate Arena:
+
+- Modify the UI components in the `components/ui` directory
+- Adjust debate parameters in `app/page.tsx`
+- Extend AI model support by adding new API routes in `app/api`
+
+## Contributing
+
+We welcome contributions to AI Debate Arena! Please feel free to submit issues, fork the repository and send pull requests!
