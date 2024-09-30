@@ -7,7 +7,7 @@ import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 export function DebateArena() {
   const [topic, setTopic] = useState('');
   const [mistralResponse, setMistralResponse] = useState('');
-  const [llamaResponse, setLlamaResponse] = useState('');
+  const [gpt2Response, setGpt2Response] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -15,7 +15,7 @@ export function DebateArena() {
     e.preventDefault();
     setError('');
     setMistralResponse('');
-    setLlamaResponse('');
+    setGpt2Response('');
     setIsLoading(true);
 
     const prompt = `Debate the following topic: ${topic}. Provide a concise opening statement.`;
@@ -34,18 +34,18 @@ export function DebateArena() {
       }
       setMistralResponse(mistralData.response);
 
-      // LLaMA API call (using Hugging Face)
-      const llamaRes = await fetch('/api/llama', {
+      // GPT-2 API call (using Hugging Face)
+      const gpt2Res = await fetch('/api/gpt2', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ prompt }),
       });
 
-      const llamaData = await llamaRes.json();
-      if (!llamaRes.ok) {
-        throw new Error(`LLaMA API error: ${llamaData.error || llamaRes.statusText}`);
+      const gpt2Data = await gpt2Res.json();
+      if (!gpt2Res.ok) {
+        throw new Error(`GPT-2 API error: ${gpt2Data.error || gpt2Res.statusText}`);
       }
-      setLlamaResponse(llamaData.response);
+      setGpt2Response(gpt2Data.response);
     } catch (error: any) {
       console.error('Error in debate submission:', error);
       setError(`An error occurred: ${error.message}`);
@@ -81,10 +81,10 @@ export function DebateArena() {
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>LLaMA (Hugging Face)</CardTitle>
+            <CardTitle>GPT-2 (OpenAI Community)</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm">{llamaResponse || 'Waiting for response...'}</p>
+            <p className="text-sm">{gpt2Response || 'Waiting for response...'}</p>
           </CardContent>
         </Card>
       </div>
