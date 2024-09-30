@@ -17,13 +17,13 @@ export async function POST(req: Request) {
         { role: "system", content: "You are participating in a debate. Provide concise and logical arguments." },
         { role: "user", content: prompt }
       ],
-      max_tokens: 150,
+      maxTokens: 150,
       temperature: 0.7,
     });
 
     return NextResponse.json({ response: chatResponse.choices[0].message.content });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error in Mistral AI API:', error);
-    return NextResponse.json({ error: error.message || 'Internal Server Error' }, { status: 500 });
+    return NextResponse.json({ error: error instanceof Error ? error.message : 'Internal Server Error' }, { status: 500 });
   }
 }

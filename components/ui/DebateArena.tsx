@@ -46,9 +46,9 @@ export function DebateArena() {
         throw new Error(`GPT-2 API error: ${gpt2Data.error || gpt2Res.statusText}`);
       }
       setGpt2Response(gpt2Data.response);
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error('Error in debate submission:', error);
-      setError(`An error occurred: ${error.message}`);
+      setError(`An error occurred: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setIsLoading(false);
     }

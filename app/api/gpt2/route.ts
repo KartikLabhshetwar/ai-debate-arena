@@ -26,8 +26,8 @@ export async function POST(req: Request) {
     const cleanedResponse = response.generated_text.trim().replace(/^Argument:\s*/, '');
 
     return NextResponse.json({ response: cleanedResponse });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Error in Hugging Face API:', error);
-    return NextResponse.json({ error: 'Internal Server Error', details: error.message }, { status: 500 });
+    return NextResponse.json({ error: 'Internal Server Error', details: error instanceof Error ? error.message : String(error) }, { status: 500 });
   }
 }
