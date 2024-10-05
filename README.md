@@ -49,7 +49,7 @@ Follow these steps to set up and run AI Debate Arena on your local machine.
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/ai-debate-arena.git
+   git clone https://github.com/KartikLabhshetwar/ai-debate-arena.git
    cd ai-debate-arena
    ```
 
